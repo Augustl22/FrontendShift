@@ -1,0 +1,69 @@
+.page{
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.link{
+    margin-right: 20px;
+    margin-top: 10px;
+    margin-left: auto;
+    text-decoration: none;
+    font-size: 22px;
+    color: rgba(0, 0, 0, 0.8)
+}
+
+.link:active{
+    color: rgba(0, 0, 0, 0.4)
+}
+
+
+.registrationPage{
+    width: 500px;
+    height: 600px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid black;
+    border-radius: 12px;
+}
+
+.inputTextRegistration{
+    outline: none;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+    height: 20px;
+    border: none;
+    border-bottom: 1px solid #000
+}
+
+.registrationSubmit{
+    width: 100%;
+    height: 50px;
+    background-color: #B8D6D8;
+    border-radius: 20px;
+    border: 1px solid #189E76;
+    margin-top: 10px;
+    position:static;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.registrationSubmit:active{
+    background-color: #8ea7a8;
+    color: rgba(0, 0, 0, 0.5)
+}
+
+.errorMassageRegistration{
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    color: red;
+}
+
+.registrationLabel{
+    font-weight: bold;
+    margin-bottom: 5px;
+}

@@ -1,8 +1,9 @@
 import React from "react";
-import {Routes, Route, Link} from "react-router-dom"
+import {Routes, Route} from "react-router-dom"
 
-import { Login } from './pages/Login'
-import { Registration } from './pages/Registration.jsx'
+import { Login } from './pages/login/LoginPage'
+import { Registration } from './pages/registration/RegistrationPage'
+import { Notepage } from './components/Note/Notepage'
 
 export default function App() {
   return(
@@ -10,6 +11,7 @@ export default function App() {
   <Routes>
     <Route path="/" element={<Login />}/>
     <Route path="/registration" element={<Registration/>}/>
+    <Route path="/note" element={<Notepage />}/>
   </Routes>
   </>
   );

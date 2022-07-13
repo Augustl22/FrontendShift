@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import "./LoginPage.css"
 
 export const Login = () => {
 	const {
@@ -15,34 +16,38 @@ export const Login = () => {
 	};
 
 	return (
-		<div>
+		<div className="page">
+		<div className="loginPage">
+		<Link className="link" to="/registration">Sign up</Link>
+		<h1 style={{marginTop: 40}}>Login</h1>
 			<form onSubmit={handleSubmit(onSubmit)}>
-				<label>
-					Login:
-					<input
+				<label className="loginLabel">
+					Username:
+					<input className="inputTextLogin"
 						{...register("login",)}
 					/>
 				</label>
-				<div style={{ height: 40 }}>
+				<div style={{height: 30}}>
 					{errors?.login && (
 						<p>{errors?.login?.message || "Error!"}</p>
 					)}
 				</div>
-				<label>
+				<label className="loginLabel">
 					Password:
-					<input
+					<input className="inputTextLogin"
 						type="password"
 						{...register("password", )}
 					/>
 				</label>
-				<div style={{ height: 40 }}>
+				<div style={{height: 30}}>
 					{errors?.password && (
 						<p>{errors?.password?.message || "Error!"}</p>
 					)}
 				</div>
-				<input type="submit" disabled={!isValid} />
-                <Link to="/registration">Зарегистрироваться</Link>
+				<input className="loginSubmit" type="submit" disabled={!isValid} value="Login" />
+                
 			</form>
+		</div>
 		</div>
 	);
 }

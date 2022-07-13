@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import { useForm } from "react-hook-form";
 import {Link} from "react-router-dom";
+import "./RegistrationPage.css"
 
 export const Registration = () => {
 	const {
@@ -22,11 +23,14 @@ export const Registration = () => {
 	};
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<label>
-					Login:
-					<input
+		<div className="page">
+		<div className="registrationPage">
+		<Link className="link" to="/">Login</Link>
+		<h1 style={{marginTop: 40}}>Registration</h1>
+			<form  onSubmit={handleSubmit(onSubmit)}>
+				<label className="registrationLabel">
+					Username:
+					<input className="inputTextRegistration" placeholder="Ivan"
 						{...register("login", {
 							required: "Поле обязательно к заполнению",
 							minLength: {
@@ -40,14 +44,14 @@ export const Registration = () => {
 						})}
 					/>
 				</label>
-				<div style={{ height: 40 }}>
+				<div style={{height: 30}}>
 					{errors?.login && (
-						<p>{errors?.login?.message || "Error!"}</p>
+						<p className="errorMassageRegistration">{errors?.login?.message || "Error!"}</p>
 					)}
 				</div>
-				<label>
+				<label className="registrationLabel">
 					Email:
-					<input
+					<input className="inputTextRegistration" placeholder="sample@sample.com"
 						{...register("email", {
 							required: "Поле обязательно к заполнению",
 							pattern: {
@@ -57,14 +61,14 @@ export const Registration = () => {
 						})}
 					/>
 				</label>
-				<div style={{ height: 40 }}>
+				<div style={{height: 30}}>
 					{errors?.email && (
-						<p>{errors?.email?.message || "Error!"}</p>
+						<p className="errorMassageRegistration">{errors?.email?.message || "Error!"}</p>
 					)}
 				</div>
-				<label>
+				<label className="registrationLabel">
 					Password:
-					<input
+					<input className="inputTextRegistration"
 						type="password"
 						{...register("password", {
 							required: "Поле обязательно к заполнению",
@@ -83,14 +87,14 @@ export const Registration = () => {
 						})}
 					/>
 				</label>
-				<div style={{ height: 40 }}>
+				<div style={{height: 30, maxWidth: 300}}>
 					{errors?.password && (
-						<p>{errors?.password?.message || "Error!"}</p>
+						<p className="errorMassageRegistration">{errors?.password?.message || "Error!"}</p>
 					)}
 				</div>
-				<label>
-					Repeat Password:
-					<input
+				<label className="registrationLabel">
+					Confirm Password:
+					<input  className="inputTextRegistration"
 						type="password"
 						{...register("repeatPassword", {
 							required: "Поле обязательно к заполнению",
@@ -99,14 +103,15 @@ export const Registration = () => {
 						})}
 					/>
 				</label>
-				<div style={{ height: 40 }}>
+				<div style={{height: 30}}>
 					{errors?.repeatPassword && (
-						<p>{errors?.repeatPassword?.message || "Error!"}</p>
+						<p className="errorMassageRegistration">{errors?.repeatPassword?.message || "Error!"}</p>
 					)}
 				</div>
-				<input type="submit" disabled={!isValid} />
-                <Link to="/">Войти</Link>
+				<input className="registrationSubmit" type="submit" disabled={!isValid} value="Sign up" />
+                
 			</form>
+		</div>
 		</div>
 	);
 }
