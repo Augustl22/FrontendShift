@@ -1,12 +1,12 @@
 import axios from "axios";
 
-export const authorization = async (login, password) => {
+export const authorization = async (username, password) => {
 		try {
 			const response = await axios.post(
 				"http://plannerrestapi.herokuapp.com/api/auth/signin",
 				{
 					password,
-					login,
+					username,
 				}
 			);
             console.log(response.data)

@@ -14,7 +14,7 @@ export const Login = () => {
 
 	const onSubmit = (data) => {
 		console.log(data);
-		authorization(data.login,data.password);
+		authorization(data.username,data.password);
 		alert(JSON.stringify(data));
 	};
 
@@ -28,7 +28,7 @@ export const Login = () => {
 				<label className="loginLabel">
 					Username:
 					<input className="inputTextLogin"
-						{...register("login")}
+						{...register("username")}
 					/>
 				</label>
 				<div style={{height: 30}}>

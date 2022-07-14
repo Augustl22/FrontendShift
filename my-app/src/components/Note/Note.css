@@ -27,7 +27,7 @@
     border-radius: 12px;
     background-color: white;
     width: 40vw;
-    min-height: 50vh;
+    min-height: 45vh;
 }
 
 .noteName{
@@ -41,8 +41,69 @@
     font-size: 20px;
     text-align: center;
     margin-bottom: 40px;
+    outline: none;
+}
+
+.formNote{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .noteDateTime{
+    display:inline-block;
+    position: relative;
+    text-align: center;
 }
 
+.noteDateTimeLeft{
+    outline: none;
+    height: 35px;
+    border:none;
+    background-color: #B8D6D8;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-right: 20px;
+}
+
+.noteDateTimeRight{
+    outline: none;
+    right: 0%;
+    height: 35px;
+    border:none;
+    background-color: #B8D6D8;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-left: 20px;
+}
+
+.textareaNote{
+    outline: none;
+    padding: 15px;
+    width: 100%;
+    resize: none;
+    border:none;
+    background-color: #DBE3E3;
+    border-radius: 10px;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.submitNote{
+    width: 50%;
+    height: 50px;
+    background-color: #B8D6D8;
+    border-radius: 20px;
+    border: 1px solid #189E76;
+    margin-top: 10px;
+    position:static;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.submitNote:active{
+    background-color: #8ea7a8;
+    color: rgba(0, 0, 0, 0.5)
+}

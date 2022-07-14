@@ -25,18 +25,18 @@ export const Notepage = () => {
 			<button onClick={() => setModalActive(true)}>Заметка</button>
 			</div>
 			<Note active={modalActive} setActive={setModalActive}>
-			<form onSubmit={handleSubmit(onSubmit)}>
+			<form className="formNote" onSubmit={handleSubmit(onSubmit)}>
 				<input className="noteName"  placeholder="Введи название"
 					{...register("nameNote",)}
 				/>
-				<div className="noteDateTime">
+				<div>
 				<input className="noteDateTimeLeft" type="datetime-local" {...register("dataStart")}></input>
 				<input className="noteDateTimeRight" type="datetime-local" {...register("dataEnd")}></input>
 				</div>
 				<br/>
-				<textarea rows="10" cols="50" {...register("descriptionNote")}></textarea>
+				<textarea className="textareaNote" rows="7" cols="50" {...register("descriptionNote")}></textarea>
 				
-				<input type="submit" disabled={!isValid} />
+				<input className="submitNote" type="submit" disabled={!isValid} />
 			</form>
 			</Note>
 
