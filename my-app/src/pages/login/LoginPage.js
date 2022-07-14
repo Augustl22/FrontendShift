@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import {authorization} from "../../actions/authorization"
+import {useDispatch} from "react-redux"
 import "./LoginPage.css"
 
 export const Login = () => {
@@ -12,8 +14,10 @@ export const Login = () => {
 
 	const onSubmit = (data) => {
 		console.log(data);
+		authorization(data.login,data.password);
 		alert(JSON.stringify(data));
 	};
+
 
 	return (
 		<div className="page">
@@ -24,7 +28,7 @@ export const Login = () => {
 				<label className="loginLabel">
 					Username:
 					<input className="inputTextLogin"
-						{...register("login",)}
+						{...register("login")}
 					/>
 				</label>
 				<div style={{height: 30}}>
@@ -36,7 +40,7 @@ export const Login = () => {
 					Password:
 					<input className="inputTextLogin"
 						type="password"
-						{...register("password", )}
+						{...register("password" )}
 					/>
 				</label>
 				<div style={{height: 30}}>

@@ -7,12 +7,10 @@ import { Notepage } from './components/Note/Notepage'
 
 export default function App() {
   return(
-  <>
   <Routes>
     <Route path="/" element={<Login />}/>
     <Route path="/registration" element={<Registration/>}/>
     <Route path="/note" element={<Notepage />}/>
   </Routes>
-  </>
   );
 }

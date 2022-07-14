@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Note } from "./Note";
 import { useForm } from "react-hook-form";
+import "./Note.css"
 
 
 
@@ -18,9 +19,6 @@ export const Notepage = () => {
 		alert(JSON.stringify(data));
 	};
 
-	//const nowDate = new Date();
-	//const date = nowDate.toISOString().substr(0,10);
-
 	return (
 		<div>
 			<div>
@@ -28,18 +26,15 @@ export const Notepage = () => {
 			</div>
 			<Note active={modalActive} setActive={setModalActive}>
 			<form onSubmit={handleSubmit(onSubmit)}>
-					<input placeholder="Введи название"
-						{...register("nameNote",)}
-					/>
-				<div style={{ height: 40 }}>
-					{errors?.nameNote && (
-						<p>{errors?.nameNote?.message || "Error!"}</p>
-					)}
+				<input className="noteName"  placeholder="Введи название"
+					{...register("nameNote",)}
+				/>
+				<div className="noteDateTime">
+				<input className="noteDateTimeLeft" type="datetime-local" {...register("dataStart")}></input>
+				<input className="noteDateTimeRight" type="datetime-local" {...register("dataEnd")}></input>
 				</div>
-				<input type="datetime-local" {...register("dataStart")}></input>
-				<input type="datetime-local" {...register("dataEnd")}></input>
 				<br/>
-				<textarea rows="10" cols="45" {...register("descriptionNote")}></textarea>
+				<textarea rows="10" cols="50" {...register("descriptionNote")}></textarea>
 				
 				<input type="submit" disabled={!isValid} />
 			</form>

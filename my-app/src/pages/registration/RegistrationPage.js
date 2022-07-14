@@ -1,6 +1,7 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import {Link} from "react-router-dom";
+import { registration } from "../../actions/registration";
 import "./RegistrationPage.css"
 
 export const Registration = () => {
@@ -15,11 +16,12 @@ export const Registration = () => {
 	});
 	const password = useRef({});
 	password.current = watch("password", "");
-
+	
 	const onSubmit = (data) => {
 		console.log(data);
+		registration(data.login,data.email,data.password);
 		alert(JSON.stringify(data));
-		reset();
+		//reset();
 	};
 
 	return (
