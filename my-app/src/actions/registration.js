@@ -11,7 +11,7 @@ export const registration = async (login, email, password) => {
 			}
 		);
 
-		alert(response.data.message || "отправлено");
+		alert(response.data.message);
 	} catch (e) {
 		alert(e.response.data.message);
 	}

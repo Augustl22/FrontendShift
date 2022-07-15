@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { Note } from "./Note";
 import { useForm } from "react-hook-form";
 import "./Note.css";
+import { CirclePicker } from "react-color";
+import { addNote } from "../../actions/addNote";
 
 export const Notepage = () => {
 	const [modalActive, setModalActive] = useState(false);
@@ -13,7 +15,7 @@ export const Notepage = () => {
 
 	const onSubmit = (data) => {
 		console.log(data);
-		alert(JSON.stringify(data));
+		addNote(data.startDate,data.endDate,data.name,data.type,"Blue")
 	};
 
 	return (
@@ -26,27 +28,37 @@ export const Notepage = () => {
 					<input
 						className="noteName"
 						placeholder="Введи название"
-						{...register("nameNote")}
+						{...register("name")}
 					/>
 					<div>
 						<input
 							className="noteDateTimeLeft"
 							type="datetime-local"
-							{...register("dataStart")}
+							{...register("startDate")}
 						></input>
 						<input
 							className="noteDateTimeRight"
 							type="datetime-local"
-							{...register("dataEnd")}
+							{...register("endDate")}
 						></input>
 					</div>
 					<br />
-					<textarea
-						className="textareaNote"
-						rows="7"
-						cols="50"
-						{...register("descriptionNote")}
-					></textarea>
+
+					<CirclePicker
+						colors={[
+							"Grey",
+							"Red",
+							"Green",
+							"Blue",
+							"Yellow",
+							"Violet",
+						]}
+					/>
+					<select className="selectNote" {...register("type")}>
+						<option value={"event"}>Мероприятие</option>
+						<option value={"meeting"}>Встреча</option>
+						<option value={"goal"}>Цель</option>
+					</select>
 
 					<input
 						className="submitNote"
