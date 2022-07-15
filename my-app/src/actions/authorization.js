@@ -10,7 +10,7 @@ export const authorization = async (username, password) => {
 				}
 			);
             console.log(response.data)
-			alert(response.data.message);
+			//alert(response.data.message);
 		} catch (e) {
 			alert(e.response.data.message);
 		}
